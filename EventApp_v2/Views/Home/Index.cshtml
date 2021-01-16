@@ -1,0 +1,233 @@
+﻿@model EventApplication.PageModel.EventSelectModel
+
+@section CssFiles{
+    <link href="~/Content/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/global/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="~/Content/global/plugins/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">*@
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">*@
+    @*<link href="/Content/jQueryDataTables.css" rel="stylesheet" type="text/css" />*@
+    @*<link href="/Content/ButtonsDataTables.css" rel="stylesheet" type="text/css" />*@
+     @*   <link type="text/css" href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />*@
+        @*<link type="text/css" href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />*@
+}
+
+@section JsFiles{
+    <script src="~/Content/pages/scripts/table-datatables-buttons.min.js?@DateTime.Now"></script>
+    <script src="~/Content/global/scripts/datatable.js?@DateTime.Now" type="text/javascript"></script>
+    <script src="~/Content/global/plugins/datatables/datatables.min.js?@DateTime.Now" type="text/javascript"></script>
+    <script src="~/Content/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js?@DateTime.Now" type="text/javascript"></script>
+    <script src="~/Content/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js?@DateTime.Now" type="text/javascript"></script>
+    <script src="~/Content/global/plugins/bootstrap-select/js/bootstrap-select.min.js?@DateTime.Now"></script>
+    <script src="~/Content/global/plugins/select2/js/select2.full.min.js?@DateTime.Now"></script>
+    <script src="~/Content/pages/scripts/components-select2.min.js?@DateTime.Now"></script>
+    <script src="~/Content/pages/scripts/components-bootstrap-select.min.js?@DateTime.Now"></script>
+    <script src="~/Content/pages/scripts/table-datatables-responsive.js?@DateTime.Now"></script>
+    <script src="~/Scripts/Home_Index.js?@DateTime.Now"></script>
+    <script src="~/Scripts/Home_Index.js" @DateTime.Now></script>
+    @*<script src="~/Scripts/Home_Index.js?@DateTime.Now"></script>*@
+    @*<script src="/Content/pages/scripts/table-datatables-buttons.min.js"></script>*@
+    @*<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>*@
+    @*<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>*@
+    @*<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>*@
+    @*<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>*@
+    @*<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>*@
+    @*<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>*@
+    @*<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>*@
+    @*<script src="/Content/pages/DataTableButtonsNew.js"></script>*@
+    <script type="text/javascript" language="javascript" src="~/Content/jquery.dataTables.min.js?@DateTime.Now"></script>
+    <script type="text/javascript" language="javascript" src="~/Content/dataTables.buttons.min.js?@DateTime.Now"></script>
+    <script type="text/javascript" language="javascript" src="~/Content/buttons.flash.min.js?@DateTime.Now"></script>
+    <script type="text/javascript" language="javascript" src="~/Content/jszip.min.js?@DateTime.Now"></script>
+    <script type="text/javascript" language="javascript" src="~/Content/pdfmake.min.js?@DateTime.Now"></script>
+    <script type="text/javascript" language="javascript" src="~/Content/vfs_fonts.js?@DateTime.Now"></script>
+    <script type="text/javascript" language="javascript" src="~/Content/buttons.html5.min.js?@DateTime.Now"></script>
+    @*<script type="text/javascript" language="javascript" src="~/Content/DataTablesNew.js"></script>
+        <script type="text/javascript" language="javascript" src="~/Content/ButtonsFlash.js"></script>
+        <script type="text/javascript" language="javascript" src="~/Content/JSZip.js"></script>
+        <script type="text/javascript" language="javascript" src="~/Content/PDFMake.js"></script>
+        <script type="text/javascript" language="javascript" src="~/Content/VfsFonts.js"></script>
+        <script type="text/javascript" language="javascript" src="~/Content/ButtonsHTML.js"></script>
+        <script type="text/javascript" language="javascript" src="~/Content/ButtonsPrint.js"></script>*@
+    <script type="text/javascript" language="javascript" src="~/Content/buttons.print.min.js?@DateTime.Now"></script>
+    @*<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>*@
+}
+
+<div class="row " id="dataSelection">
+    <div class="col-md-12">
+        <div class="portlet box red">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-wrench"></i>Secim
+                </div>
+            </div>
+            <div class="portlet-body">
+                <input type="hidden" id="pageRequesterId" value="1" />
+                <div class="form-group">
+
+                    <div class="row">
+
+                        @*<label class="control-label col-md-2"></label>*@
+                        @**@
+                        <div class="form-group">
+                            <div class="input-group select2-bootstrap-prepend">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" name="allArea" id="allArea">
+                                </span>
+
+                                <select id="span_small" class="form-control select2 zoneSelection select2-selection__clear">
+
+                                    <optgroup label="Bolge">
+                                        @*<option value="All">All</option>*@
+
+                                        @for (int i = 0; i < Model.AreaNames.Count; i++)
+                                        {
+                                            <option value="@Model.AreaNames[i]">@Model.AreaNames[i]</option>
+                                        }
+                                    </optgroup>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group select2-bootstrap-prepend">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" name="allSource" id="allSource" />
+                                </span>
+
+
+
+                                <select id="span_small" class="form-control select2 sourceSelection  select2-selection__clear">
+                                    <optgroup label="Kaynak">
+
+                                        @for (int i = 0; i < Model.Sources.Count; i++)
+                                        {
+                                            <option value="@Model.Sources[i]">@Model.Sources[i]</option>
+                                        }
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="form-group">
+
+                            <label class="control-label col-md-4"></label>
+                            <div class="col-md-4">
+                                <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                    <input type="text" class="form-control startingDate" name="from">
+                                    <span class="input-group-addon"> to </span>
+                                    <input type="text" class="form-control endingDate" name="to">
+                                </div>
+                                <!-- /input-group -->
+                                @*<span class="help-block"> Tarih Aralığı Seçinizi </span>*@
+                            </div>
+
+                        </div><br />
+                    </div><br />
+                    <form class="form-horizontal">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="max1"> MAX 1
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="max2"> MAX 2
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="min1"> MIN 1
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="min2"> MIN 2
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="hiRange"> HiRange
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="loRange"> LoRange
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="alrmFault"> Alarm/Fault
+                                <span></span>
+                            </label>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <input id="searchQuery" type="text" class="form-control" placeholder="Kelimeler arasında Ve sorgusu için . Veya sorgusu için , işaretlerini kullanınız. ">
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-5"></label>
+                        <div class="col-md-4">
+                            <a class="btn btn-circle btn-sm green getDetails">
+                                Detaylar
+                                <i class="fa fa-user "> </i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" id="activityLog">
+    <div class="col-md-12">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>Event Details
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="eventDetails">
+                    <thead>
+                        <tr>
+                            <th> Bolge </th>
+                            <th> Nokta </th>
+                            <th> Durum </th>
+                            <th> Aciklama </th>
+                            <th> Baslangic</th>
+                            <th> Bitis Tarihi</th>
+                            <th> Gecen Zaman</th>
+                            <th> Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+</div>
+
+
+
+
